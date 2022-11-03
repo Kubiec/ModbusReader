@@ -87,7 +87,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 
         let mut interval = tokio::time::interval(std::time::Duration::from_millis(100));
             loop {
-                 interval.tick().await;
+                interval.tick().await;
                 for register in InputRegister::iter() { 
                     let reg = generate_input_register(register);
                     let rsp = ctx.read_input_registers(reg.address, 2).await.unwrap();
